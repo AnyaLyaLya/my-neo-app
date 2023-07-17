@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/my-neo-app/static/css/main.073c9b0a.css",
+    "main.js": "/my-neo-app/static/js/main.5b02b987.js",
+    "index.html": "/my-neo-app/index.html",
+    "main.073c9b0a.css.map": "/my-neo-app/static/css/main.073c9b0a.css.map",
+    "main.5b02b987.js.map": "/my-neo-app/static/js/main.5b02b987.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.5b02b987.js"
+  ]
+}
