@@ -1,29 +1,12 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import { NeoItem } from "../neoItem";
-import { NeoData } from '../../types/types';
+import { List } from '@mui/material';
+import { NeoListProps } from '../../types/types';
 
-export const NeoList:FC<{ neoData: NeoData[] }> = ({ neoData }) => {
-  const [highlightedItems, setHighlightedItems] = useState<NeoData[]>([]);
-
-  useEffect(() => {
-    const calculateHazardCounts = (neo: NeoData): number => {
-      return neo.is_potentially_hazardous_asteroid ? 1 : 0;
-    };
-
-    const sortedItems = neoData.slice().sort((a, b) => {
-      const hazardCountA = calculateHazardCounts(a);
-      const hazardCountB = calculateHazardCounts(b);
-      return hazardCountB - hazardCountA;
-    });
-
-    setHighlightedItems(sortedItems.slice(0, 2));
-  }, [neoData]);
-
-  return (
-    <div>
-      {neoData.map((neo, index) => (
-        <NeoItem key={index} neo={neo} highlighted={highlightedItems.includes(neo)} />
-      ))}
-    </div>
-  );
-};
+export const NeoList:FC<NeoListProps> = ({ neoData, highlightedItems }) => (
+  <List>
+    {neoData.map((neo, index) => (
+      <NeoItem key={index} neo={neo} highlighted={highlightedItems.includes(index + 1)} />
+    ))}
+  </List>
+);
